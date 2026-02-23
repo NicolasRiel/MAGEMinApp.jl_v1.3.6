@@ -333,6 +333,7 @@ function Tab_Simulation()
                                                     dcc_dropdown(   id      = "P2O5sat-dropdown",
                                                     options = [
                                                         (label = "none",                            value = "none"),
+                                                        (label = "Klein et al., 2006",              value = "Klein26"),
                                                         (label = "Tollari et al., 2006",            value = "Tollari06"),
                                                         (label = "Bea et al., 1992 (after HW84)",   value = "HWBea92"),
                                                     ],
