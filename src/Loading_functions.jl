@@ -122,6 +122,7 @@ function get_dtbulk_list()
         Dict("label" => "Igneous (Green et al., 2025, after H18)", "value" => "ig"),
         Dict("label" => "Igneous alkaline dry (Weller et al., 2024)", "value" => "igad"),
         Dict("label" => "Ultramafic (Evans & Frost., 2021)", "value" => "um"),
+        Dict("label" => "Calc-shist (Stuck et al., 2026)", "value" => "cs"),
         Dict("label" => "- MANTLE DATABASE -", "value" => "separator", "disabled" => true),  # Simulate a horizontal line
         Dict("label" => "Mantle (Holland et al., 2013)", "value" => "mtl"),
         Dict("label" => "Stixrude & Lithgow-Bertelloni (2011)", "value" => "sb11"),
@@ -171,6 +172,11 @@ function get_dtbulk_list()
     push!(dba,Dict(         :database    => "Stixrude & Lithgow-Bertelloni (2024)",
                             :acronym     => "sb24",
                             ), cols=:union)
+
+    push!(dba,Dict(         :database    => "Calc-shist (Stuck et al., 2026)",
+                            :acronym     => "cs",
+                            ), cols=:union)
+
 
     push!(dba,Dict(         :database    => "Ultramafic extended (Evans & Frost., 2021) + pl, hb and aug from Green et al., 2016",
                             :acronym     => "ume",
@@ -892,6 +898,17 @@ function get_dtbulk_list()
                             :frac2      => [53.96, 9.26, 10.15, 8.11, 10.14, 0.11, 2.54, 1.35, 0.98, 3.42],
                             ), cols=:union)
 
+
+    push!(db,Dict(          :bulk       => "predefined",
+                            :title      => "WM pelite",
+                            :comments   => "Forshaw et al., 2023",
+                            :db         => "cs",
+                            :test       => 0,
+                            :sysUnit    => "mol",
+                            :oxide      => ["SiO2","Al2O3","CaO","MgO","FeO","K2O","Na2O","TiO2","O","Cr2O3","H2O","CO2"],
+                            :frac       => [61,  13.0,  0.8, 4, 6.3,  2.7,  1.4,  0.17,  0.7,  0.109, 5.0, 20.0],
+                            :frac2      => [61,  13.0,  0.8, 4, 6.3,  2.7,  1.4,  0.17,  0.7,  0.109, 5.0, 20.0],
+                            ), cols=:union)
 
     dbte = DataFrame(       composition = String[],
                             title       = String[],
